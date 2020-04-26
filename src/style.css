@@ -1,0 +1,40 @@
+*{
+    margin: auto;
+}
+html{
+    background-image: url("img/SR.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.logo{
+    height: 120px;
+    background: url("img/logo.png"); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 250px;
+}
+.menu{
+    background-color:rgba(21, 31, 27, 0.6);
+    border: 2px solid #7E8552;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    width: 1105px;
+    height: 58px;
+}
+.button-menu{
+    font-family:'Roboto Slab', serif;
+    font-style: normal;
+    font-size: 28px;
+    color: #D6DEC0;
+    background-color:rgba(21, 31, 27, 0.0);
+    border: none;
+    width: 190px;
+    height: 40px;
+}
