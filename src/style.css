@@ -53,9 +53,31 @@ html{
     align-items: center;
     margin: 20px 8%;
     width: auto;
-    height: 1000px; /*ajustar depois para o tamanho do conteúdo*/
+    height: auto; /*ajustar depois para o tamanho do conteúdo*/
 }
+.champ-box{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
 
+}
+.champ-card{
+    width: 100px;
+    height: 135px;
+    background-color: #7E8552;
+    margin: 8px;
+    border-radius: 5px;
+}
+.champ-img{
+    width: 100px;
+    height: 100px;
+}
+.champ-name{
+    justify-content: center;
+    font-family:'Roboto Slab', serif;
+    color: #D6DEC0;
+}
 @media only screen and (min-width: 768px){
     .logo{
         height: 120px;
