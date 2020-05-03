@@ -17,3 +17,5 @@ function createCards(listdata){
     };
 };
 createCards(lol);
+
+console.log(cardsField);
