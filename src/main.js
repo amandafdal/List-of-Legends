@@ -15,7 +15,19 @@ function createCards(listdata){
         <p class="champ-name">${lol[champ].name}</p>`;
         cardsField.appendChild(card) 
     };
+    return;
 };
 createCards(lol);
-
 console.log(cardsField);
+
+document.getElementById("role-tags").addEventListener("click",function(event){
+    event.preventDefault()
+    document.getElementById("hidden").classList.toggle("show-roles");
+});
+
+document.addEventListener("click",function(event) {
+    event.preventDefault()
+    if (!event.target.matches("#role-tags")) {
+        document.getElementById("hidden").classList.remove("show-roles");
+    };
+});
