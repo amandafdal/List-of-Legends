@@ -2,18 +2,32 @@ import { example } from './data.js';
 import data from './data/lol/lol.js';
 console.log(example, data);
 
-const cardsField = document.getElementById("champ-box") 
-const lol = data.data
+const cardsField = document.getElementById("champ-box"); 
+
+let lol = [];
+for (let item in data.data){
+    lol.push(data.data[item]);
+};
 
 function createCards(listdata){
+    cardsField.innerHTML = "";
     for(let champ in listdata){
-        const card = document.createElement("div");
-        card.className = "champ-card";
-        card.id = `${lol[champ].id}`;
-        card.innerHTML = 
-        `<img class="champ-img" id=${lol[champ].name} src=${lol[champ].img} alt=${lol[champ].name}><br>
-        <p class="champ-name">${lol[champ].name}</p>`;
-        cardsField.appendChild(card) 
+        cardsField.innerHTML += `<div class = champ-card id = ${listdata[champ].id}>
+            <img class="champ-img" id=${listdata[champ].name} src=${listdata[champ].img} alt=${listdata[champ].name}><br>
+            <p class="champ-name">${listdata[champ].name}</p></div>`
     };
+    return;
 };
 createCards(lol);
+
+document.getElementById("role-tags").addEventListener("change",filterRole);
+function filterRole(){
+    const selectedRole = document.getElementById("role-tags").value
+    cardsField.innerHTML = "";
+    if (selectedRole == "") {
+        createCards(lol);
+    } else {
+        createCards(lol.filter(role => role.tags.includes(selectedRole)));
+    };
+};
+
