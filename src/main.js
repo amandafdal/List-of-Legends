@@ -1,5 +1,5 @@
-import { example } from './data.js';
-import data from './data/lol/lol.js';
+import { example } from "./data.js";
+import data from "./data/lol/lol.js";
 console.log(example, data);
 
 const cardsField = document.getElementById("champ-box"); 
@@ -30,4 +30,23 @@ function filterRole(){
         createCards(lol.filter(role => role.tags.includes(selectedRole)));
     };
 };
+document.getElementById("difficulty").addEventListener("change", difficulty);
 
+function difficulty() {
+  const selectedDiff = document.getElementById("difficulty").value
+  cardsField.innerHTML = "";
+  if(selectedDiff === ""){
+    createCards(lol)
+  }else if(selectedDiff === "easy"){
+    createCards(lol.filter(diff => diff.info.difficulty <= 4));
+  }else if(selectedDiff === "medium"){
+    createCards(lol.filter(diff => diff.info.difficulty <=7));
+    return;
+  }else if(selectedDiff === "medium"){
+    createCards(lol.filter(diff => diff.info.difficulty >4));
+    return;
+  }else{
+    createCards(lol.filter(diff => diff.info.difficulty >=8));
+  }
+  return;
+}
