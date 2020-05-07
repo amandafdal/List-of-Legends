@@ -20,12 +20,14 @@ function createCards(listdata){
 };
 createCards(lol);
 
-document.getElementById("role-tags").addEventListener("click",function(){
-    document.getElementById("hidden").classList.toggle("show-roles");
-});
-
-document.addEventListener("click",function() {
-    if (!event.target.matches("#role-tags")) {
-        document.getElementById("hidden").classList.remove("show-roles");
+document.getElementById("role-tags").addEventListener("change",filterRole);
+function filterRole(){
+    const selectedRole = document.getElementById("role-tags").value
+    cardsField.innerHTML = "";
+    if (selectedRole == "") {
+        createCards(lol);
+    } else {
+        createCards(lol.filter(role => role.tags.includes(selectedRole)));
     };
-});
+};
+

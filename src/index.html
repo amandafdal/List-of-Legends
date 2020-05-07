@@ -11,18 +11,16 @@
     <header>
       <div class="logo"></div>
       <nav class="menu">
-        <div class="drop-menu">
-          <button class="button-menu" id="role-tags">Função</button>
-          <div class="hidden-roles" id="hidden">
-            <p id="all-roles">Todas</p>
-            <p id="Marksman">Atirador</p>
-            <p id="Assassin">Assassino</p>
-            <p id="Fighter">Lutador</p>
-            <p id="Mage">Mago</p>
-            <p id="Support">Suporte</p>
-            <p id="Tank">Tanque</p>
-          </div>
-        </div>
+        <select class="button-menu" id="role-tags">
+          <option disabled selected>Função</option>
+          <option value="">Todas Funções</option>
+          <option value="Marksman">Atirador</option>
+          <option value="Assassin">Assassino</option>
+          <option value="Fighter">Lutador</option>
+          <option value="Mage">Mago</option>
+          <option value="Support">Suporte</option>
+          <option value="Tank">Tanque</option>
+        </select>
         <button class="button-menu" id="difficulty">Dificuldade</button>
         <button class="button-menu" id="search-name">Buscar nome</button>
       </nav>
