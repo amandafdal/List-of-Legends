@@ -14,3 +14,7 @@ export const filterDifficulty = {
     return data.filter(diff => diff.info.difficulty >= diffValue)
   }
 };
+
+export const filterName = (data, nameValue) => {
+  return data.filter(search => search.name.includes(nameValue));
+};

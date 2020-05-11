@@ -1,4 +1,4 @@
-import { filterRole, filterDifficulty } from "./data.js";
+import { filterRole, filterDifficulty, filterName } from "./data.js";
 import data from "./data/lol/lol.js";
 //console.log(example, data);
 
@@ -39,7 +39,6 @@ function showDiffFilter() {
   const easyValue=4;
   const mediumValue=7;
   const hardValue=8;
-  cardsField.innerHTML = "";
   if(selectedDiff === "easy"){
     createCards(filterDifficulty.easy(lol,easyValue));
   }else if(selectedDiff === "medium"){
@@ -49,4 +48,12 @@ function showDiffFilter() {
   }else{
     createCards(lol)
   }
+}
+
+document.getElementById("search-name").addEventListener("input", showByName);
+function showByName() {
+const inputName = document.getElementById("search-name").value
+const capName = inputName.slice(0,1).toUpperCase()+inputName.slice(1).toLowerCase()
+console.log(capName)
+createCards(filterName(lol,capName))
 }
