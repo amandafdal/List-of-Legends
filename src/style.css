@@ -72,6 +72,7 @@ html {
   margin: 5px;
   border-radius: 5px;
   padding: 2% 2% 10%;
+  cursor: pointer;
 }
 .champ-img {
   width: 100px;
@@ -87,6 +88,75 @@ html {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 }
 @media only screen and (min-width: 768px){
+  .modal-container {
+    display: none;  
+  }
+  .show{
+    display: flex; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+  }
+  .modal-champ {
+    background-color: rgb(21, 31, 27);
+    border: 2px solid #7e8552;
+    border-radius: 10px;
+    margin: auto;
+    padding: 20px;
+    width: 65%;
+  }
+  .splash-art-image{
+    position: relative;
+    width: 440px;
+    display: block;
+  }
+  .text-modal{
+    color: mintcream;
+
+  }
+  .champ-content{
+    display: flex;
+    text-align: justify;
+    padding: 0px 10px;
+  }
+  .info{
+    width: 50%;
+    margin: 0px;
+    text-align: justify;
+  }
+  .info-text{
+    font-size: 20px;
+    text-align: center;
+  }
+  .stats{
+    width: 50%;
+  }
+  .btn-close {
+    position: relative;
+    float: right;
+    padding: 0px;
+    font-family:'Roboto Slab', serif;
+    font-style: normal;
+    color: rgb(0,0,0);
+    font-size: 16px;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #7e8552;
+    border-radius: 50%;
+    background-color: rgb(255, 255,255);
+    cursor: pointer;
+  }
+  
+  .btn-close:hover,.btn-close:focus {
+    color: rgb(255, 255,255);
+    background-color:rgb(0,0,0);;
+  }
     .logo{
         height: 120px;
         background-size: 250px;
