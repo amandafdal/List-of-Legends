@@ -87,9 +87,101 @@ html {
   text-align: center;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 }
+/* Começo modal */
+.modal-container {
+  display: none;  
+}
+.show{
+  display: flex; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+.modal-champ {
+  font-family: "Roboto Slab", serif;
+  background-color: rgb(21, 31, 27);
+  border: 2px solid #7e8552;
+  border-radius: 10px;
+  padding: 20px;
+  width: 65%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  height: fit-content;
+}
+.splash-art-image{
+  position: relative;
+  width: 100%;
+  display: block;
+}
+.text-modal{
+  color: mintcream;
+
+}
+.champ-content{
+  padding: 0px 10px;
+}
+.info{
+  width: 100%;
+  margin: 0px;
+  text-align: justify;
+}
+.info-box{
+  background-color: rgb(8, 12, 10);
+  border: 2px solid #7e8552;
+  border-radius: 10%;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 15px;
+  padding-top: 17px;
+}
+.stats{
+  width: 100%;
+}
+.btn-close {
+  position: relative;
+  float: right;
+  padding: 0px;
+  font-family:'Roboto Slab', serif;
+  font-style: normal;
+  color: rgb(0,0,0);
+  font-size: 16px;
+  width: 25px;
+  height: 25px;
+  border: 2px solid #7e8552;
+  border-radius: 50%;
+  background-color: rgb(255, 255,255);
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 768px){
-  .modal-container {
-    display: none;  
+  .logo{
+      height: 120px;
+      background-size: 250px;
+  }
+  .menu{
+      height: 58px;
+  }
+  .button-menu{
+      font-size: 28px;
+      height: 40px;
+  }
+  .button-menu:hover{
+      transition-duration: 0.3s;
+      background-color: rgba(21, 31, 27, 0.5);
+  }
+  .main-box{
+  padding: 1.5%;
+  min-height: 500px;
+  }
+  .champ-card {
+    margin: 2%;
+    padding: 2% 2% 3%;
   }
   .show{
     display: flex; 
@@ -100,84 +192,35 @@ html {
     width: 100%; 
     height: 100%; 
     overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
   }
   .modal-champ {
-    background-color: rgb(21, 31, 27);
-    border: 2px solid #7e8552;
-    border-radius: 10px;
-    margin: auto;
     padding: 20px;
     width: 65%;
   }
-  .splash-art-image{
-    position: relative;
-    width: 440px;
-    display: block;
-  }
-  .text-modal{
-    color: mintcream;
-
-  }
   .champ-content{
     display: flex;
-    text-align: justify;
     padding: 0px 10px;
+    text-align: justify;
   }
   .info{
     width: 50%;
     margin: 0px;
-    text-align: justify;
   }
-  .info-text{
+  .info-box{
     font-size: 20px;
-    text-align: center;
   }
   .stats{
     width: 50%;
+    padding-left: 30px;
+    margin: 0px;
   }
   .btn-close {
-    position: relative;
-    float: right;
-    padding: 0px;
-    font-family:'Roboto Slab', serif;
-    font-style: normal;
-    color: rgb(0,0,0);
     font-size: 16px;
     width: 25px;
     height: 25px;
-    border: 2px solid #7e8552;
-    border-radius: 50%;
-    background-color: rgb(255, 255,255);
-    cursor: pointer;
   }
-  
   .btn-close:hover,.btn-close:focus {
     color: rgb(255, 255,255);
     background-color:rgb(0,0,0);;
-  }
-    .logo{
-        height: 120px;
-        background-size: 250px;
-    }
-    .menu{
-        height: 58px;
-    }
-    .button-menu{
-        font-size: 28px;
-        height: 40px;
-    }
-    .button-menu:hover{
-        transition-duration: 0.3s;
-        background-color: rgba(21, 31, 27, 0.5);
-    }
-    .main-box{
-    padding: 1.5%;
-    min-height: 500px;
-  }
-  .champ-card {
-    margin: 2%;
-    padding: 2% 2% 3%;
   }
 }

@@ -60,16 +60,29 @@ const inputName = document.getElementById("search-name").value
 const capName = inputName.slice(0,1).toUpperCase()+inputName.slice(1).toLowerCase()
 console.log(capName)
 createCards(filterName(lol,capName))
+openModal()
 }
 
 function createModal(champ) {
   const data = lol.find((personagem) => personagem.id === champ);
   document.getElementById("modal").innerHTML = `<button class="btn-close">X</button></br>
     <h1 class= "champ-name text-modal">${champ}</h1><br>
+    <h3 class= "champ-name text-modal">${data.tags.join(", ")}</h3><br>
     <img class="splash-art-image" id="${champ}" src="${data.splash}"
     alt="Splash art do campeão ${data.id}"><br>
     <div class="champ-content">
-    <div class = "stats">
+      <div class = "info">
+        <p class= "blurb-champ text-modal"><em>${data.blurb}</em></p><br>
+        <div class= "info-box">
+          <p class= "text-modal">Informações: </p><br>
+          <p class= "text-modal">Ataque: ${data.info.attack}</p><br>
+          <p class= "text-modal">Defesa: ${data.info.defense}</p><br>
+          <p class= "text-modal">Mágica: ${data.info.magic}</p><br>
+          <p class= "text-modal">Dificuldade: ${data.info.difficulty}</p><br>
+        </div>  
+      </div>
+      <div class = "stats">
+        <h3 class= "stats-champ text-modal">Stats:</h3>
         <p class= "stats-champ text-modal">Vida: ${data.stats.hp}</p>
         <p class= "stats-champ text-modal">Vida por nível: ${data.stats.hpperlevel}</p>
         <p class= "stats-champ text-modal">Mana: ${data.stats.mp}</p>
@@ -90,14 +103,6 @@ function createModal(champ) {
         <p class= "stats-champ text-modal">Dano de ataque por nível: ${data.stats.attackdamageperlevel}</p>
         <p class= "stats-champ text-modal">Velocidade de ataque: ${data.stats.attackspeedoffset}</p>
         <p class= "stats-champ text-modal">Velocidade de ataque por nível: ${data.stats.attackspeedperlevel}</p>    
-      </div>
-      <div class = "info">
-        <p class= "blurb-champ text-modal"><em>${data.blurb}</em></p><br>
-        <p class= "info-text text-modal">Informações: </p><br>
-        <p class= "info-text text-modal">Ataque: ${data.info.attack}</p><br>
-        <p class= "info-text text-modal">Defesa: ${data.info.defense}</p><br>
-        <p class= "info-text text-modal">Mágica: ${data.info.magic}</p><br>
-        <p class= "info-text text-modal">Dificuldade: ${data.info.difficulty}</p><br>
       </div>     
     </div>`;
   return
