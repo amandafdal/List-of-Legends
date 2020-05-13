@@ -1,4 +1,4 @@
-import { filterRole, filterDifficulty } from "./data.js";
+import { filterRole, filterDifficulty, filterName } from "./data.js";
 import data from "./data/lol/lol.js";
 
 const cardsField = document.getElementById("champ-box");
@@ -35,6 +35,7 @@ function showRoleFilter() {
 
 document.getElementById("difficulty").addEventListener("change", showDiffFilter);
 function showDiffFilter() {
+
   const selectedDiff = document.getElementById("difficulty").value;
   const easyValue = 4;
   const mediumValue = 7;
@@ -51,6 +52,14 @@ function showDiffFilter() {
   }
   openModal();
   return;
+}
+
+document.getElementById("search-name").addEventListener("input", showByName);
+function showByName() {
+const inputName = document.getElementById("search-name").value
+const capName = inputName.slice(0,1).toUpperCase()+inputName.slice(1).toLowerCase()
+console.log(capName)
+createCards(filterName(lol,capName))
 }
 
 function createModal(champ) {
