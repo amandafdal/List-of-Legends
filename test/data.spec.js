@@ -1,23 +1,110 @@
-import { example, anotherExample } from '../src/data.js';
+import {filterRole, filterDifficulty, filterName} from '../src/data.js';
+const duplaNA = [
+  {
+    id: "Amanda",
+    name: "Amanda",
+    info: {
+      difficulty: 4
+    },
+    tags: ["Fighter", "Tank"]
+  }, 
+  {
+    id: "Nicole",
+    name: "Nicole",
+    info: {
+      difficulty: 5
+    },
+    tags: ["Mage", "Assassin"]
+  },
+  {
+    id: "God",
+    name: "God",
+    info: {
+      difficulty: 9
+    },
+    tags: ["Mage", "Support"]
+  }
+];
 
-
-describe('example', () => {
+describe('Function filter characters by role', () => {
   it('is a function', () => {
-    expect(typeof example).toBe('function');
+    expect(typeof filterRole).toBe('function');
   });
-
-  it('returns `example`', () => {
-    expect(example()).toBe('example');
+  it('Retuns characters with selected role', () => {
+  expect(filterRole(duplaNA,"Assassin")).toEqual([{
+    id: "Nicole",
+    name: "Nicole",
+    info: {
+      difficulty: 5
+    },
+    tags: ["Mage", "Assassin"]
+    }]);
   });
 });
 
-
-describe('anotherExample', () => {
-  it('is a function', () => {
-    expect(typeof anotherExample).toBe('function');
+describe('Function difficulty', () => {
+  it('is a object', () => {
+    expect(typeof filterDifficulty).toBe('object');
   });
+    describe('Function difficulty.easy', () => {
+      it('is a function', () => {
+        expect(typeof filterDifficulty.easy).toBe('function');
+      });
+      it('returns `difficulty.easy`', () => {
+        expect(filterDifficulty.easy(duplaNA, 4)).toEqual([{
+          id: "Amanda",
+          name: "Amanda",
+          info: {
+            difficulty: 4
+          },
+          tags: ["Fighter", "Tank"]
+        }]);
+      });
+    });  
+    describe('Function difficulty.medium', () => {
+      it('is a function', () => {
+        expect(typeof filterDifficulty.medium).toBe('function');
+      });
+        it('returns `difficulty.medium`', () => {
+          expect(filterDifficulty.medium(duplaNA, 4, 7)).toEqual([{
+            id: "Nicole",
+            name: "Nicole",
+            info: {
+              difficulty: 5
+            },
+            tags: ["Mage", "Assassin"]
+          }]);
+        });
+    });
+    describe('Function difficulty.hard', () => {
+      it('is a function', () => {
+        expect(typeof filterDifficulty.hard).toBe('function');
+      });
+      it('returns `difficulty.hard`', () => {
+        expect(filterDifficulty.hard(duplaNA, 8)).toEqual([{
+          id: "God",
+          name: "God",
+          info: {
+            difficulty: 9
+          },
+          tags: ["Mage", "Support"]
+        }]);
+      });
+  });  
+});
 
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
+describe('Filter characters by name', () => {
+  it('is a function', () => {
+    expect(typeof filterName).toBe('function');
+  });
+  it('Retuns characters with typed name', () => {
+    expect(filterName(duplaNA,"God")).toEqual([{
+      id: "God",
+      name: "God",
+      info: {
+        difficulty: 9
+      },
+      tags: ["Mage", "Support"]
+    }]);
   });
 });

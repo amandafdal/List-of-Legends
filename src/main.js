@@ -58,7 +58,6 @@ document.getElementById("search-name").addEventListener("input", showByName);
 function showByName() {
 const inputName = document.getElementById("search-name").value
 const capName = inputName.slice(0,1).toUpperCase()+inputName.slice(1).toLowerCase()
-console.log(capName)
 createCards(filterName(lol,capName))
 openModal()
 }
