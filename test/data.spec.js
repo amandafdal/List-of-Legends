@@ -1,4 +1,4 @@
-import {filterRole, filterDifficulty, filterName} from '../src/data.js';
+import {filterRole, filterDifficulty, filterName, calc} from '../src/data.js';
 const duplaNA = [
   {
     id: "Amanda",
@@ -106,5 +106,14 @@ describe('Filter characters by name', () => {
       },
       tags: ["Mage", "Support"]
     }]);
+  });
+});
+
+describe('Calculo agregado', () => {
+  it('is a function', () => {
+    expect(typeof calc).toBe('function');
+  });
+  it('Retuns percentage of champs', () => {
+  expect(calc(3, 1)).toEqual("33")
   });
 });

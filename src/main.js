@@ -1,4 +1,4 @@
-import { filterRole, filterDifficulty, filterName } from "./data.js";
+import { filterRole, filterDifficulty, filterName, calc} from "./data.js";
 import data from "./data/lol/lol.js";
 
 const cardsField = document.getElementById("champ-box");
@@ -7,6 +7,7 @@ let lol = [];
 for (let item in data.data) {
   lol.push(data.data[item]);
 }
+
 function createCards(listdata) {
   cardsField.innerHTML = "";
   for (let champ in listdata) {
@@ -20,6 +21,20 @@ function createCards(listdata) {
 }
 createCards(lol);
 
+function showCalc() {
+  const totalChamp = lol.length
+  const filterChamp = document.querySelectorAll(".champ-card").length
+  if (filterChamp === totalChamp) {
+    document.querySelector(".champ-percentage").innerHTML = ""
+  } else {
+    document.querySelector(".champ-percentage").innerHTML = 
+    `Este banco de dados conta com ${totalChamp} campeões, 
+    ${filterChamp} fazendo parte da categoria selecionada. 
+    Isso representa ${calc(totalChamp,filterChamp)}% do total`
+  }
+  return
+}
+
 document.getElementById("role-tags").addEventListener("change", showRoleFilter);
 function showRoleFilter() {
   const selectedRole = document.getElementById("role-tags").value;
@@ -30,6 +45,7 @@ function showRoleFilter() {
     createCards(filterRole(lol, selectedRole));
   }
   openModal()
+  showCalc()
   return;
 }
 
@@ -51,6 +67,7 @@ function showDiffFilter() {
     createCards(lol);
   }
   openModal();
+  showCalc()
   return;
 }
 
@@ -91,7 +108,7 @@ function createModal(champ) {
         <p class= "stats-champ text-modal">Armadura por nível: ${data.stats.armorperlevel}</p>
         <p class= "stats-champ text-modal">Resistência mágica: ${data.stats.spellblock}</p>
         <p class= "stats-champ text-modal">Resistência mágica por nível: ${data.stats.spellblockperlevel}</p>
-        <p class= "stats-champ text-modal">Alcance (range): ${data.stats.attackrange}</p>
+        <p class= "stats-champ text-modal">Alcance: ${data.stats.attackrange}</p>
         <p class= "stats-champ text-modal">Regeneração de vida: ${data.stats.hpregen}</p>
         <p class= "stats-champ text-modal">Regeneração de vida por nível: ${data.stats.hpregenperlevel}</p>
         <p class= "stats-champ text-modal">Regeneração de mana: ${data.stats.mpregen}</p>
