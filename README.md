@@ -18,7 +18,7 @@ Joga outros jogos de computador e está começando no LOL agora, joga por divers
 Precisa conhecer os campeões e saber seus níveis de dificuldade.
 Procura por uma página fácil e intuitiva pra ter informação rápido.
 
-![alvaro](https://github.com/nicolefranca/SAP004-data-lovers/blob/master/src/img/alvaro.png)
+![alvaro](https://github.com/nicolefranca/SAP004-data-lovers/blob/master/src/img/Alvaro.png)
 
 Alvaro - 18 - Masculino
 
