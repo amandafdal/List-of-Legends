@@ -70,14 +70,23 @@ function showDiffFilter() {
   showCalc()
   return;
 }
-
-document.getElementById("search-name").addEventListener("input", showByName);
+const searchBtn = document.getElementById("search-name")
+searchBtn.addEventListener("input", showByName);
 function showByName() {
 const inputName = document.getElementById("search-name").value
 const capName = inputName.slice(0,1).toUpperCase()+inputName.slice(1).toLowerCase()
 createCards(filterName(lol,capName))
 openModal()
 }
+
+document.addEventListener("click", function (event) {
+  if (event.target.matches("#search-name")) {
+    searchBtn.setAttribute("placeholder"," ")
+  }else{
+    searchBtn.setAttribute("placeholder","Buscar por nome")
+  }   
+  return
+});
 
 function createModal(champ) {
   const data = lol.find((personagem) => personagem.id === champ);
