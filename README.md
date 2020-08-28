@@ -1,5 +1,5 @@
 # Data Lovers - List of Legends 
-Pagina pode ser acessada em [List of Legends](https://amandafdal.github.io/SAP004-data-lovers/src/). 
+Pagina pode ser acessada em [List of Legends](https://amandafdal.github.io/List-of-Legends/src/). 
 
 ## Definição do produto
 O site List of Legends foi elaborado com base nos dados fornecidos sobre os campeões do jogo League of Legends, buscando satisfazer as necessidades dos unsuários quanto ao acesso a esses dados.
