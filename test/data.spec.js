@@ -43,7 +43,7 @@ describe('Function filter characters by role', () => {
 });
 
 describe('Function filter characters by difficulty', () => {
-  it('is a object', () => {
+  it('is a function', () => {
     expect(typeof filterDifficulty).toBe('function');
   });
   it('Retuns characters with easy difficulty', () => {
