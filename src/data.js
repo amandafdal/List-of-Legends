@@ -18,7 +18,7 @@ export const filterName = (data, nameValue) => {
   return data.filter(search => search.name.includes(nameValue));
 };
 
-export function calc(total, filterValue) {
+export const calc = (total, filterValue) => {
   let result = ""
   result += parseInt(filterValue*100/total)
   return result 
