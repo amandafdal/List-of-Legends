@@ -23,7 +23,7 @@ const createCards = (listdata) => {
   }
 }
 
-const showCalc= () => {
+const showPercentage= () => {
   const totalChamp = lol.length;
   const filterChamp = document.querySelectorAll(".champ-card").length;
 
@@ -36,39 +36,18 @@ const showCalc= () => {
   `;
 }
 
-const showRoleFilter = () => {
+const filter = () => {
   const selectedRole = document.querySelector("#role-tags").value;
-
-  selectedRole === ""
-  ?createCards(lol)
-  :cardsField.innerHTML = ""
-  createCards(filterRole(lol, selectedRole));
-
-  openModal(lol)
-  showCalc()
-}
-
-const showDiffFilter = () => {
-  cardsField.innerHTML = "";
   const selectedDiff = document.querySelector("#difficulty").value;
-  const easyValue = 4;
-  const mediumValue = 7;
-  const hardValue = 8;
+  const byRole = filterRole(lol, selectedRole);
+  const byDiff = filterDifficulty(byRole, selectedDiff);
 
-  if (selectedDiff === "easy") {
-    createCards(filterDifficulty.easy(lol, easyValue));
-  } else if (selectedDiff === "medium") {
-    createCards(filterDifficulty.medium(lol, easyValue, mediumValue));
-  } else if (selectedDiff === "hard") {
-    createCards(filterDifficulty.hard(lol, hardValue));
-  } else {
-    createCards(lol);
-  }
-
-  openModal(lol);
+  createCards(byDiff);
+  openModal(lol)
+  showPercentage()
 }
 
-const showByName = () => {
+const filterByName = () => {
   document.querySelector(".champ-percentage").innerHTML = "";
   const inputName = document.querySelector("#search-name").value
   const capName = inputName.slice(0,1).toUpperCase()+inputName.slice(1).toLowerCase()
@@ -83,9 +62,9 @@ const clearPlaceholder = (event) => {
   :searchBtn.setAttribute("placeholder","Buscar por nome")
 };
 
-filterByRole.addEventListener("change", showRoleFilter);
-filterBtDifficulty.addEventListener("change", showDiffFilter);
-searchBtn.addEventListener("input", showByName);
+filterByRole.addEventListener("change", filter);
+filterBtDifficulty.addEventListener("change", filter);
+searchBtn.addEventListener("input", filterByName);
 document.addEventListener("click", clearPlaceholder);
 document.addEventListener("click", closeModal);
 createCards(lol);

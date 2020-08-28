@@ -1,16 +1,16 @@
 export const filterRole = (data, roleValue) => {
-  return data.filter(role => role.tags.includes(roleValue));
+  return data.filter(role => roleValue === "" || role.tags.includes(roleValue));
 };
 
-export const filterDifficulty = {
-  easy:(data, diffValue) => {
-    return data.filter(diff => diff.info.difficulty <= diffValue)
-  },
-  medium:(data, diffValue1, diffValue2) => {
-    return data.filter(diff => (diff.info.difficulty >diffValue1) && (diff.info.difficulty <=diffValue2))
-  },
-  hard:(data, diffValue) => {
-    return data.filter(diff => diff.info.difficulty >= diffValue)
+export const filterDifficulty = (data, diffValue) => {
+  if (diffValue === "easy") {
+    return data.filter(diff => diff.info.difficulty <= 4)
+  } else if (diffValue === "medium") {
+    return data.filter(diff => (diff.info.difficulty > 4) && (diff.info.difficulty <= 7))
+  } else if (diffValue === "hard") {
+    return data.filter(diff => diff.info.difficulty >= 8)
+  } else {
+    return data
   }
 };
 
