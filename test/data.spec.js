@@ -42,55 +42,51 @@ describe('Function filter characters by role', () => {
   });
 });
 
-describe('Function difficulty', () => {
+describe('Function filter characters by difficulty', () => {
   it('is a object', () => {
-    expect(typeof filterDifficulty).toBe('object');
+    expect(typeof filterDifficulty).toBe('function');
   });
-    describe('Function difficulty.easy', () => {
-      it('is a function', () => {
-        expect(typeof filterDifficulty.easy).toBe('function');
-      });
-      it('returns `difficulty.easy`', () => {
-        expect(filterDifficulty.easy(duplaNA, 4)).toEqual([{
-          id: "Amanda",
-          name: "Amanda",
-          info: {
-            difficulty: 4
-          },
-          tags: ["Fighter", "Tank"]
-        }]);
-      });
-    });  
-    describe('Function difficulty.medium', () => {
-      it('is a function', () => {
-        expect(typeof filterDifficulty.medium).toBe('function');
-      });
-        it('returns `difficulty.medium`', () => {
-          expect(filterDifficulty.medium(duplaNA, 4, 7)).toEqual([{
-            id: "Nicole",
-            name: "Nicole",
-            info: {
-              difficulty: 5
-            },
-            tags: ["Mage", "Assassin"]
-          }]);
-        });
-    });
-    describe('Function difficulty.hard', () => {
-      it('is a function', () => {
-        expect(typeof filterDifficulty.hard).toBe('function');
-      });
-      it('returns `difficulty.hard`', () => {
-        expect(filterDifficulty.hard(duplaNA, 8)).toEqual([{
-          id: "God",
-          name: "God",
-          info: {
-            difficulty: 9
-          },
-          tags: ["Mage", "Support"]
-        }]);
-      });
-  });  
+  it('Retuns characters with easy difficulty', () => {
+    expect(filterDifficulty(duplaNA,"easy")).toEqual(
+      [{
+        id: "Amanda",
+        name: "Amanda",
+        info: {
+          difficulty: 4
+        },
+        tags: ["Fighter", "Tank"]
+      }]
+    );
+  });
+  it('Retuns characters with medium difficulty', () => {
+    expect(filterDifficulty(duplaNA,"medium")).toEqual(
+      [{
+        id: "Nicole",
+        name: "Nicole",
+        info: {
+          difficulty: 5
+        },
+        tags: ["Mage", "Assassin"]
+      }]
+    );
+  });
+  it('Retuns characters with hard difficulty', () => {
+    expect(filterDifficulty(duplaNA,"hard")).toEqual(
+      [{
+        id: "God",
+        name: "God",
+        info: {
+          difficulty: 9
+        },
+        tags: ["Mage", "Support"]
+      }]
+    );
+  });
+  it('Retuns all characters when no difficulty is selected', () => {
+    expect(filterDifficulty(duplaNA,"")).toEqual(
+      duplaNA
+    );
+  });
 });
 
 describe('Filter characters by name', () => {
